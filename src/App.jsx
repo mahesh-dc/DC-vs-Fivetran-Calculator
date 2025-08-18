@@ -15,14 +15,14 @@ function App() {
   const calculateFivetranCost = () => {
     // Fivetran tiered pricing by connectors and monthly rows (in millions)
     const table = {
-      5:  { 5: 2500, 10: 3420, 20: 5120, 30: 5410, 50: 6860, 100: 8994 },
-      10: { 5: 2570, 10: 5000, 20: 6770, 30: 8470, 50: 10750, 100: 13650 },
+      5:  { 5: 2570, 10: 3420, 20: 5120, 30: 5410, 50: 6860, 100: 10000 },
+      10: { 5: 2570, 10: 5070, 20: 6770, 30: 8470, 50: 10750, 100: 13650 },
       20: { 5: 2570, 10: 5070, 20: 10070, 30: 11770, 50: 15170, 100: 21430 },
-      30: { 5: 2470, 10: 5020, 20: 9970, 30: 15070, 50: 18130, 100: 26970 },
+      30: { 5: 2570, 10: 5070, 20: 9970, 30: 15070, 50: 18130, 100: 26970 },
     }
 
     const price = table[connectors]?.[monthlyRows]
-    return typeof price === 'number' ? price : 0
+    return typeof price === 'number' ? price*0.2 : 0
   }
 
   const calculateDataChannelCost = () => {
