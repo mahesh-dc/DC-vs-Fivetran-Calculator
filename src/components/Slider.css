@@ -1,0 +1,126 @@
+.slider-container {
+  width: 100%;
+}
+
+.slider-track {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+/* Track fill */
+.slider-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #282876, #F79C7D);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+.slider-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Thumb */
+.slider-input::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #282876;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider-input::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #282876;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.slider-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* Values */
+.slider-value {
+  font-weight: 600;
+  color: #282876;
+  font-size: 14px;
+  background: #eff6ff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 80px;
+  text-align: center;
+}
+
+.slider-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.slider-step {
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+/* Step pills */
+.slider-step:hover {
+  border-color: #282876;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.slider-step.active {
+  background: linear-gradient(135deg, #282876, #282876);
+  color: #ffffff;
+  border-color: #282876;
+  box-shadow: 0 2px 6px rgba(40, 40, 118, 0.25);
+}
+
+.slider-selected {
+  font-weight: 600;
+  color: #282876;
+  font-size: 14px;
+  background: #eff6ff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+@media (max-width: 480px) {
+  .slider-step {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}

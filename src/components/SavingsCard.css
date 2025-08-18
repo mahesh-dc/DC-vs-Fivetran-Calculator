@@ -1,0 +1,149 @@
+.savings-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.savings-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.savings-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cost-breakdown {
+  margin-bottom: 32px;
+}
+
+.cost-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cost-item:last-child {
+  border-bottom: none;
+}
+
+.cost-label {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cost-value {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cost-item.fivetran .cost-value {
+  color: #ef4444;
+}
+
+.cost-item.datachannel .cost-value {
+  color: #282876;
+}
+
+.cost-item.addons .cost-value {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.addons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.addons-list span {
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.annual-savings {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 12px;
+  color: white;
+}
+
+.savings-amount {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.savings-label {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.savings-percentage {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #8b5cf6;
+}
+
+.disclaimer-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.disclaimer-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.disclaimer p {
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cost-label-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cost-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
