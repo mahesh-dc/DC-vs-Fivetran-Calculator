@@ -1,8 +1,8 @@
 import React from 'react'
 import './SavingsCard.css'
 
-const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPercentage, additionalNeeds }) => {
-  const hasAddons = additionalNeeds.managedDataWarehouse
+const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPercentage, reverseConnections = 0, censusCost = 0 }) => {
+  const showCensus = reverseConnections > 0
   
   return (
     <div className="savings-card">
@@ -11,33 +11,32 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
       </div>
 
       <div className="cost-breakdown">
-        <div className="cost-item fivetran">
+        <div className="bordered">
+        <div className="cost-item fivetran" >
           <span className="cost-label-group">
             <img className="cost-logo" src="/assets/logos/fivetran.png" alt="Fivetran logo" />
             <span className="cost-label">Estimated Fivetran Cost</span>
           </span>
           <span className="cost-value">${fivetranCost.toLocaleString()} / mo</span>
         </div>
+          {showCensus && (
+          <div className="cost-item fivetran ">
+            <span className="cost-label-group"> 
+              <img className="cost-logo" src="/assets/logos/census.png" alt="Census logo" />
+              <span className="cost-label">Get Census Cost</span>
+            </span>
+            <span className="cost-value">${censusCost.toLocaleString()} / mo
+            </span>
+          </div>  
+        )}
+        </div>
         
         <div className="cost-item datachannel">
           <span className="cost-label-group">
             <img className="cost-logo" src="/assets/logos/datachannel.png" alt="DataChannel logo" />
-            <span className="cost-label">DataChannel Cost </span>
+            <span className="cost-label">DataChannel Cost</span>
           </span>
           <span className="cost-value">${dataChannelCost.toLocaleString()} / mo</span>
-        </div>
-        
-        <div className="cost-item addons">
-          <span className="cost-label">Add-ons</span>
-          <span className="cost-value">
-            {hasAddons ? (
-              <span className="addons-list">
-                {additionalNeeds.managedDataWarehouse && <span>Managed DW</span>}
-              </span>
-            ) : (
-              '--'
-            )}
-          </span>
         </div>
       </div>
 

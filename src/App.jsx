@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import Slider from './components/Slider'
 import Checkbox from './components/Checkbox'
 import SavingsCard from './components/SavingsCard'
 
 function App() {
-  const [connectors, setConnectors] = useState(5)
-  const [monthlyRows, setMonthlyRows] = useState(5)
-  const [additionalNeeds, setAdditionalNeeds] = useState({
-    managedDataWarehouse: false
-  })
-
+  const [connectors, setConnectors] = useState(10)
+  const [monthlyRows, setMonthlyRows] = useState(50)
+  const [reverseConnections, setReverseConnections] = useState(0)
   // Pricing calculations
   const calculateFivetranCost = () => {
     // Fivetran tiered pricing by connectors and monthly rows (in millions)
@@ -22,7 +19,7 @@ function App() {
     }
 
     const price = table[connectors]?.[monthlyRows]
-    return typeof price === 'number' ? price*0.2 : 0
+    return typeof price === 'number' ? price * 0.2 : 0
   }
 
   const calculateDataChannelCost = () => {
@@ -30,25 +27,26 @@ function App() {
     const tiers = { 5: 399, 10: 524, 20: 774, 30: 899, 50: 1199, 100: 1949 }
     let baseCost = tiers[monthlyRows] ?? 399
 
-    // Add-ons pricing
-    if (additionalNeeds.managedDataWarehouse) baseCost += 200
+    // If reverse connections affect pricing, add logic here (e.g., baseCost += reverseConnections * 200)
 
     return Math.round(baseCost)
   }
 
-  const fivetranCost = calculateFivetranCost()
-  const dataChannelCost = calculateDataChannelCost()
-  const monthlySavings = fivetranCost - dataChannelCost
-  const annualSavings = monthlySavings * 12
-  const savingsPercentage = ((monthlySavings / fivetranCost) * 100).toFixed(2)
-
-  const handleCheckboxChange = (key) => {
-    setAdditionalNeeds(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }))
+  // Census pricing: up to 2 connections = $350 total; each extra = $200
+  const calculateCensusCost = (rc) => {
+    if (rc <= 0) return 0
+    if (rc <= 2) return 350
+    return 350 + (rc - 2) * 200
   }
 
+  const fivetranBaseCost = calculateFivetranCost()
+  const dataChannelCost = calculateDataChannelCost()
+  const censusCost = calculateCensusCost(reverseConnections)
+  const fivetranCost = fivetranBaseCost
+
+  const monthlySavings = fivetranCost + censusCost - dataChannelCost
+  const annualSavings = monthlySavings * 12
+  const savingsPercentage = fivetranCost > 0 ? ((monthlySavings / (fivetranCost + censusCost)) * 100).toFixed(2) : 0
   return (
     <div className="app">
       <div className="calculator-container">
@@ -78,7 +76,6 @@ function App() {
               onChange={setMonthlyRows}
               formatValue={(value) => `${value} M/Month`}
               options={[
-                { label: '5M', value: 5 },
                 { label: '10M', value: 10 },
                 { label: '20M', value: 20 },
                 { label: '30M', value: 30 },
@@ -88,14 +85,14 @@ function App() {
             />
           </div>
 
-          <div className="input-section ">
-            <label >Additional Needs</label>
-              <Checkbox
-                label="Managed Data Warehouse"
-                checked={additionalNeeds.managedDataWarehouse}
-                onChange={() => handleCheckboxChange('managedDataWarehouse')}
-                ariaLabel="Managed Data Warehouse"
-              />
+          <div className="input-section">
+            <label>Reverse Connections</label>
+            <Slider
+              value={reverseConnections}
+              onChange={setReverseConnections}
+              formatValue={(value) => `${value}`}
+              options={[0, 2, 4, 6, 8].map(n => ({ label: String(n), value: n }))}
+            />
           </div>
 
           <div className="detailed-pricing-link">
@@ -112,7 +109,8 @@ function App() {
             dataChannelCost={dataChannelCost}
             annualSavings={annualSavings}
             savingsPercentage={savingsPercentage}
-            additionalNeeds={additionalNeeds}
+            reverseConnections={reverseConnections}
+            censusCost={censusCost}
           />
         </div>
       </div>
