@@ -23,7 +23,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
           <div className="cost-item fivetran ">
             <span className="cost-label-group"> 
               <img className="cost-logo" src="/assets/logos/census.png" alt="Census logo" />
-              <span className="cost-label">Get Census Cost</span>
+              <span className="cost-label">Census Cost (Reverse ETL)</span>
             </span>
             <span className="cost-value">${censusCost.toLocaleString()} / mo
             </span>
@@ -45,7 +45,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
         <div className="savings-label">Annual Savings</div>
         <div className="savings-percentage">({savingsPercentage}% reduction)</div>
       </div>
-
+        <div className='bordered'></div>
       <div className="disclaimer">
         <div className="disclaimer-icon">
           <svg viewBox="0 0 24 24" fill="none">

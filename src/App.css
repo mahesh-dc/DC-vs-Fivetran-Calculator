@@ -7,7 +7,6 @@
 .calculator-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -17,8 +16,6 @@
 
 .input-panel {
   padding: 48px;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  border-right: 1px solid #e2e8f0;
   position: relative;
   overflow: hidden;
 }
@@ -30,7 +27,6 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #282876, #F79C7D);
 }
 
 .input-panel h2 {
@@ -69,9 +65,9 @@
 }
 
 .input-section label {  
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 600;
-  color: #475569;
+  color: #282876;
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -131,7 +127,7 @@
 
 .savings-panel {
   padding: 40px;
-  background: white;
+  background: #fbfcff;
   display: flex;
   align-items: center;
   justify-content: center;

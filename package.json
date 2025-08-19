@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "ROI Calculator for DataChannel ETL tool",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

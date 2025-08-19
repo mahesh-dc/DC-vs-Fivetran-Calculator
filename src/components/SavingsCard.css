@@ -2,9 +2,8 @@
   width: 100%;
   max-width: 400px;
   padding: 32px;
-  background: white;
+  background: #fbfcff;
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .savings-header {
@@ -15,7 +14,7 @@
 .savings-header h2 {
   font-size: 28px;
   font-weight: 700;
-  color: #1e293b;
+  color: #282876;
   margin-bottom: 8px;
 }
 
@@ -42,7 +41,7 @@
 
 .cost-label {
   font-size: 14px;
-  color: #64748b;
+  color: #8181ac;
   font-weight: 500;
 }
 
@@ -83,13 +82,12 @@
   text-align: center;
   margin-bottom: 32px;
   padding: 24px;
-  background: linear-gradient(135deg, #10b981, #059669);
   border-radius: 12px;
-  color: white;
+  color: #239f42;
 }
 
 .savings-amount {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
   margin-bottom: 8px;
 }
@@ -110,9 +108,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 16px;
-  background: #f8fafc;
   border-radius: 8px;
-  border-left: 4px solid #8b5cf6;
 }
 
 .disclaimer-icon {

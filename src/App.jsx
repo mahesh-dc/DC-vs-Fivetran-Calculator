@@ -7,7 +7,7 @@ import SavingsCard from './components/SavingsCard'
 function App() {
   const [connectors, setConnectors] = useState(10)
   const [monthlyRows, setMonthlyRows] = useState(50)
-  const [reverseConnections, setReverseConnections] = useState(0)
+  const [reverseConnections, setReverseConnections] = useState(2)
   // Pricing calculations
   const calculateFivetranCost = () => {
     // Fivetran tiered pricing by connectors and monthly rows (in millions)
@@ -52,10 +52,9 @@ function App() {
       <div className="calculator-container">
         {/* Left Panel - Input Parameters */}
         <div className="input-panel">
-          <h2>Input Parameters</h2>
           
           <div className="input-section">
-            <label>No of Connectors</label>
+            <label>No. of Connectors</label>
             <Slider
               value={connectors}
               onChange={setConnectors}
@@ -90,16 +89,14 @@ function App() {
             <Slider
               value={reverseConnections}
               onChange={setReverseConnections}
-              formatValue={(value) => `${value}`}
+              formatValue={(value) => `${value} Reverse Connections`}
               options={[0, 2, 4, 6, 8].map(n => ({ label: String(n), value: n }))}
             />
           </div>
 
-          <div className="detailed-pricing-link">
-            <a href="https://www.datachannel.co/pricing" target="_blank">
+            <a href="https://www.datachannel.co/pricing" target="_blank" style={{color : '#216FED'}}>
               View Detailed Pricing →
             </a>
-          </div>
         </div>
 
         {/* Right Panel - Estimated Savings */}
