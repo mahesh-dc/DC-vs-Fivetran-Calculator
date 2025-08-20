@@ -14,7 +14,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
         <div className="bordered">
         <div className="cost-item fivetran" >
           <span className="cost-label-group">
-            <img className="cost-logo" src="/assets/logos/fivetran.png" alt="Fivetran logo" />
+            <img className="cost-logo" src="https://zingy-toffee-ab16d2.netlify.app/assets/logos/fivetran.png" alt="Fivetran logo" />
             <span className="cost-label">Estimated Fivetran Cost</span>
           </span>
           <span className="cost-value">${fivetranCost.toLocaleString()} / mo</span>
@@ -22,7 +22,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
           {showCensus && (
           <div className="cost-item fivetran ">
             <span className="cost-label-group"> 
-              <img className="cost-logo" src="/assets/logos/census.png" alt="Census logo" />
+              <img className="cost-logo" src="https://zingy-toffee-ab16d2.netlify.app/assets/logos/census.png" alt="Census logo" />
               <span className="cost-label">Census Cost (Reverse ETL)</span>
             </span>
             <span className="cost-value">${censusCost.toLocaleString()} / mo
@@ -33,7 +33,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
         
         <div className="cost-item datachannel">
           <span className="cost-label-group">
-            <img className="cost-logo" src="/assets/logos/datachannel.png" alt="DataChannel logo" />
+            <img className="cost-logo" src="https://zingy-toffee-ab16d2.netlify.app/assets/logos/datachannel.png" alt="DataChannel logo" />
             <span className="cost-label">DataChannel Cost</span>
           </span>
           <span className="cost-value">${dataChannelCost.toLocaleString()} / mo</span>
