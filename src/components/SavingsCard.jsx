@@ -53,7 +53,7 @@ const SavingsCard = ({ fivetranCost, dataChannelCost, annualSavings, savingsPerc
             <path d="M12 16v-4M12 8h.01" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <p>The prices shown are estimates based on publicly available data and should not be considered final. For exact pricing, please visit our Pricing page or contact us at <a href="mailto:sales@datachannel.co">DataChannel Support</a> for a custom plan.</p>
+        <p>The prices shown are estimates based on publicly available data and should not be considered final. For exact pricing, please visit our Pricing page or contact us at sales@datachannel.co for a custom plan.</p>
       </div>
     </div>
   )
