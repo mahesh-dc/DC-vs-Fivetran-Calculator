@@ -93,10 +93,6 @@ function App() {
               options={[0, 2, 4, 6, 8].map(n => ({ label: String(n), value: n }))}
             />
           </div>
-
-            <a href="https://www.datachannel.co/pricing" target="_blank" style={{color : '#216FED'}}>
-              View Detailed Pricing →
-            </a>
         </div>
 
         {/* Right Panel - Estimated Savings */}
